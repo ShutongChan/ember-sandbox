@@ -1,0 +1,11 @@
+
+      {{#if selectedUser}}
+        <button type="button" class="btn btn-primary btn-block" onclick={{action "clearUser"}}>
+          重置
+        </button>
+      {{/if}}
+      {{#each model as |user|}}
+        <li local-class="user-item" onclick={{action "selectUser" user}}>{{user.login}}</li>
+      {{/each}}
+   
+{{yield}}

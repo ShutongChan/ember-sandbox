@@ -1,12 +1,22 @@
 <h2>在父子组件之间传递状态</h2>
+{{#parent-card model=model}}
+    {{#child-header selectedUser=selectedUser}}{{/child-header}}
+  <div class="grid">
+    {{#child-list model=model selectedUser=selectedUser}}{{/child-list}}
+    {{#child-cell selectedUser=selectedUser}}{{/child-cell}}
+  </div>
+{{/parent-card}}
+<!-- <section class="card">
 
-<section class="card">{{!-- 1 --}}
-  <header class="card-header">{{!-- 1.1 --}}
+{{#child-header }}{{/child-header}}
+{{#child-list }}{{/child-list}}
+{{#child-cell }}{{/child-cell}}
+  <header class="card-header">
     用户列表{{if selectedUser (concat " - " selectedUser.login)}}
   </header>
 
   <div class="grid">
-    <ul class="cell -4of12" local-class="user-list">{{!-- 1.2 --}}
+    <ul class="cell -4of12" local-class="user-list">
       {{#if selectedUser}}
         <button type="button" class="btn btn-primary btn-block" onclick={{action "clearUser"}}>
           重置
@@ -17,7 +27,7 @@
       {{/each}}
     </ul>
 
-    <div class="cell -8of12">{{!-- 1.3 --}}
+    <div class="cell -8of12">
       {{#unless selectedUser}}
         <h3 class="grid -center">请在左边列表选择一个用户</h3>
       {{else}}
@@ -33,4 +43,4 @@
       {{/unless}}
     </div>
   </div>
-</section>
+</section> -->
